@@ -34,17 +34,36 @@ class BaseProblem(metaclass=ABCMeta):
         if not isinstance(dim, int) or dim < 0:
             raise ValueError("dim must be an integer and greater than 0")
 
-        if not isinstance(lower_boundary, (int, float, list, tuple, np.ndarray)):
-            raise TypeError("lower_boundary must be an integer, float or np.ndarray")
-
-        if not isinstance(upper_boundary, (int, float, list, tuple, np.ndarray)):
-            raise TypeError("upper_boundary must be a integer, float or np.ndarray")
-
         self.dim = dim
 
+        if isinstance(lower_boundary, (int, float)):
+            self.lower_boundary = np.asarray([lower_boundary] * self.dim)
+        elif isinstance(lower_boundary, (list, tuple)) and len(lower_boundary) == self.dim:
+            self.lower_boundary = np.asarray(lower_boundary)
+        elif isinstance(lower_boundary, np.ndarray):
+            self.lower_boundary = lower_boundary
+        else:
+            raise TypeError("lower_boundary must be an integer, float, list, tuple, np.ndarray and the length of "
+                            "lower_boundary must be equal to dim")
 
+        if isinstance(upper_boundary, (int, float)):
+            self.upper_boundary = np.asarray([upper_boundary] * self.dim)
+        elif isinstance(upper_boundary, (list, tuple)) and len(upper_boundary) == self.dim:
+            self.upper_boundary = np.asarray(upper_boundary)
+        elif isinstance(upper_boundary, np.ndarray):
+            self.upper_boundary = upper_boundary
+        else:
+            raise TypeError("upper_boundary must be an integer, float, list, tuple, np.ndarray and the length of "
+                            "upper_boundary must be equal to dim")
 
+    @abstractmethod
+    def __call__(self, position, *args, **kwargs):
+        """
+        abstractmethod, we must implement this method
+        Parameters
+        ---------
 
-
-if __name__ == "__main__":
-    problem = BaseProblem(-1, 0, 10)
+        position : np.ndarray
+            the position of the problem, which means the solution of the problem
+        """
+        pass
