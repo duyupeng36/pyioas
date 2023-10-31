@@ -7,6 +7,9 @@ import numpy as np
 from abc import ABCMeta, abstractmethod
 
 
+__all__ = ['BaseProblem']
+
+
 class BaseProblem(metaclass=ABCMeta):
 
     name = "BaseProblem"

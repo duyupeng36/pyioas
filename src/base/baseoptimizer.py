@@ -6,8 +6,8 @@ from abc import ABCMeta, abstractmethod
 
 import numpy as np
 
-from problem import BaseProblem
-from solution import Solution
+from .problem import BaseProblem
+from .solution import Solution
 
 
 class BaseOptimizer(metaclass=ABCMeta):
@@ -50,9 +50,10 @@ class BaseOptimizer(metaclass=ABCMeta):
                     self.problem.upper_boundary - self.problem.lower_boundary
             ) + self.problem.lower_boundary
 
-
         self.solution = Solution()
         self.solution.iteration_curve = np.zeros(self.maximum_iterations)
+
+        self.kwargs = kwargs
 
     @abstractmethod
     def solve(self):

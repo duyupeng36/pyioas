@@ -3,7 +3,7 @@ Unimodal benchmark functions
 """
 import numpy as np
 
-from ..base import BaseProblem
+from ..base.problem import BaseProblem
 
 
 class SphereBenchmark(BaseProblem):

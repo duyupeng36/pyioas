@@ -4,6 +4,9 @@ Some utility functions
 import numpy as np
 
 
+__all__ = ['u']
+
+
 def u(x, a, k, m):
     """
     $u(x_i, a, k, m) = \begin{cases} k(x_i-a)^m & x_i > a \\ 0 & -a \leq x_i \leq a \\ k(-x_i-a)^m & x_i < -a \end{cases}$
