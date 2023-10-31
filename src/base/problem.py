@@ -56,11 +56,6 @@ class BaseProblem(metaclass=ABCMeta):
             raise TypeError("upper_boundary must be an integer, float, list, tuple, np.ndarray and the length of "
                             "upper_boundary must be equal to dim")
 
-        self.best_position = None
-        self.best_fitness = float("inf")
-        self.iteration_curve = None
-
-
     @abstractmethod
     def __call__(self, position, *args, **kwargs):
         """

@@ -7,6 +7,7 @@ from abc import ABCMeta, abstractmethod
 import numpy as np
 
 from problem import BaseProblem
+from solution import Solution
 
 
 class BaseOptimizer(metaclass=ABCMeta):
@@ -38,23 +39,27 @@ class BaseOptimizer(metaclass=ABCMeta):
             """)
 
         self.problem = problem
-        self.problem.iteration_curve = np.zeros(maximum_iterations)
 
         self.population_size = population_size
         self.maximum_iterations = maximum_iterations
 
         self.individual_positions = np.zeros((self.population_size, self.problem.dim))
+        self.individual_fitness = np.zeros(self.population_size)
         for i in range(self.population_size):
             self.individual_positions[i, :] = np.random.rand() * (
                     self.problem.upper_boundary - self.problem.lower_boundary
             ) + self.problem.lower_boundary
+
+
+        self.solution = Solution()
+        self.solution.iteration_curve = np.zeros(self.maximum_iterations)
 
     @abstractmethod
     def solve(self):
         """
         Iterate the main loop
         """
-        return self
+        return self.solution
 
     def space_bound(self, position):
         """
@@ -70,10 +75,16 @@ class BaseOptimizer(metaclass=ABCMeta):
         np.ndarray, which is after boundary value processing
         """
         s = (position > self.problem.upper_boundary) + (position < self.problem.lower_boundary)
-        res = (np.random.rand() * (
-                    self.problem.upper_boundary - self.problem.lower_boundary) + self.problem.lower_boundary) * s + position * (
-                  ~s)
+        res = (
+                (
+                        np.random.rand()
+                        * (self.problem.upper_boundary - self.problem.lower_boundary)
+                        + self.problem.lower_boundary
+                ) * s
+                + position * (~s)
+        )
         return res
+
 
 
 if __name__ == '__main__':
