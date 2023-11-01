@@ -86,6 +86,17 @@ class BaseOptimizer(metaclass=ABCMeta):
         )
         return res
 
+    def update(self, itr):
+        """
+        update the global best position and fitness
+        """
+
+        for i in range(self.population_size):
+            if self.individual_fitness[i] < self.solution.best_fitness:
+                self.solution.best_fitness = self.individual_fitness[i]
+                self.solution.best_position = self.individual_positions[i].copy()
+        self.solution.iteration_curve[itr] = self.solution.best_fitness
+
 
 
 if __name__ == '__main__':

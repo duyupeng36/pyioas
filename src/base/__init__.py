@@ -1,2 +1,2 @@
 
-__all__ = ["problem", "solution", "algorithm"]
+__all__ = ["problem", "solution", "algorithm", "utils"]
