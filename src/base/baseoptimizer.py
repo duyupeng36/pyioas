@@ -47,6 +47,7 @@ class BaseOptimizer(metaclass=ABCMeta):
 
         self.individual_positions = np.zeros((self.population_size, self.problem.dim))
         self.individual_fitness = np.zeros(self.population_size)
+        self.individual_fitness.fill(np.inf)
         for i in range(self.population_size):
             self.individual_positions[i, :] = np.random.rand() * (
                     self.problem.upper_boundary - self.problem.lower_boundary

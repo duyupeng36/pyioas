@@ -5,7 +5,7 @@
 This repository implements some of the intelligent optimization algorithms that I have seen or used during my graduate studies
 
 # Progress
-- [ ] Particle Swarm Optimization
+- [x] Particle Swarm Optimization
 - [x] Harris hawks optimization: Algorithm and applications
 - [x] Slime mould algorithm: Anew method for stochastic optimization  
 - [x] Seagull optimization algorithm: Theory and its applications for large-scale industrial engineering problems
