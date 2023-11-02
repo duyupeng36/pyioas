@@ -32,7 +32,7 @@ class SOA(BaseOptimizer):
             for i in range(self.population_size):
                 C_s = A * self.individual_positions[i]
                 M_s = B * (self.solution.best_position - self.individual_positions[i])
-                D_s = C_s + M_s
+                D_s = abs(C_s + M_s)
 
                 k_x = np.random.uniform(0, 2 * np.pi)
                 r_x = self.u * np.exp(k_x * self.v)
