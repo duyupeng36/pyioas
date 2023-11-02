@@ -67,8 +67,11 @@ class QIO(BaseOptimizer):
                     self.individual_fitness[i] = fitness
                     self.individual_positions[i] = new_individual_position.copy()
 
-            self.update(itr)
+            for i in range(self.population_size):
+                if self.individual_fitness[i] < self.solution.best_fitness:
+                    self.solution.best_fitness = self.individual_fitness[i]
+                    self.solution.best_position = self.individual_positions[i].copy()
+            self.solution.iteration_curve[itr] = self.solution.best_fitness
+
         self.solution.end_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         return self.solution
-
-
