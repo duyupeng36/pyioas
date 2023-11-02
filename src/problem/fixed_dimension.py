@@ -2,6 +2,10 @@
 Fixed-dimension multimodal benchmark functions.
 """
 
+__all__ = ['FoxholsFixedDimension', 'KowalikFixedDimension', 'SixHumpCamelFixedDimension', 'BraninFixedDimension',
+           'GoldSteinPriceFixedDimension', 'Hartman3FixedDimension', 'Hartman6FixedDimension', 'Shekel5FixedDimension',
+           'Shekel7FixedDimension', 'Shekel10FixedDimension']
+
 import numpy as np
 from ..base import BaseProblem
 

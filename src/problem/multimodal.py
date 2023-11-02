@@ -2,11 +2,14 @@
 Multimodal benchmark functions.
 """
 
+__all__ = ['SchwefelMultimodal', 'RastriginMultimodal', 'AckleyMultimodal', 'GriewankMultimodal', 'PenalizedMultimodal',
+           'Penalized2Multimodal']
+
 import numpy as np
 
 
 from ..base import BaseProblem
-from ..base.utils import u
+from ..base import u
 
 
 class SchwefelMultimodal(BaseProblem):

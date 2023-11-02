@@ -1,6 +1,10 @@
 """
 Unimodal benchmark functions
 """
+
+__all__ = ["SphereBenchmark", "Schwefel2_22Benchmark", "Schwefel1_2Benchmark", "Schwefel2_21Benchmark",
+           "RosenbrockBenchmark", "StepBenchmark", "QuarticBenchmark"]
+
 import numpy as np
 
 from ..base.problem import BaseProblem
