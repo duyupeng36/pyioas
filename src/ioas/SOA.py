@@ -1,7 +1,6 @@
 from datetime import datetime
 
 import numpy as np
-from numpy.random import permutation as randperm
 
 from ..base.baseoptimizer import BaseOptimizer
 
@@ -17,7 +16,7 @@ class SOA(BaseOptimizer):
         self.v = v
 
     def solve(self):
-        self.solution.start_time = datetime.now().strftime('%Y-%m-%d %H-%M-%S')
+        self.solution.start_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         for i in range(self.population_size):
             self.individual_fitness[i] = self.problem(self.individual_positions[i])
         for i in range(self.population_size):
@@ -58,5 +57,5 @@ class SOA(BaseOptimizer):
                     self.solution.best_position = self.individual_positions[i]
 
             self.solution.iteration_curve[itr] = self.solution.best_fitness
-        self.solution.end_time = datetime.now().strftime('%Y-%m-%d %H-%M-%S')
+        self.solution.end_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         return self.solution

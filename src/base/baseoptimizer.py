@@ -12,7 +12,7 @@ from .solution import Solution
 
 class BaseOptimizer(metaclass=ABCMeta):
 
-    def __init__(self, problem, population_size, maximum_iterations, **kwargs):
+    def __init__(self, problem: BaseProblem, population_size, maximum_iterations, **kwargs):
         """
         Parameters
         -----------
