@@ -15,8 +15,6 @@ class QIO(BaseOptimizer):
     def __init__(self, problem: BaseProblem, population_size: int, maximum_iterations: int, **kwargs):
         super().__init__(problem, population_size, maximum_iterations, **kwargs)
 
-        self.solution.problem = problem
-
     def solve(self):
         self.solution.start_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         for i in range(self.population_size):

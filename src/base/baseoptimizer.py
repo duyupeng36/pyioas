@@ -52,6 +52,7 @@ class BaseOptimizer(metaclass=ABCMeta):
 
         self.solution = Solution()
         self.solution.iteration_curve = np.zeros(self.maximum_iterations)
+        self.solution.problem = problem
 
         self.kwargs = kwargs
 

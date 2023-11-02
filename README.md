@@ -6,8 +6,8 @@ This repository implements some of the intelligent optimization algorithms that 
 
 # Progress
 
-- [] Grey Wolf Optimizer
 - 
+- [x] Grey Wolf Optimizer
 - [x] Quadratic Interpolation Optimization (QIO): A new optimization algorithm based on generalized quadratic interpolation and its applications to real-world engineering problems
 - [x] Artificial hummingbird algorithm: A new bio-inspired optimizer with its engineering applications
 

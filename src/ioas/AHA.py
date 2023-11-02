@@ -14,8 +14,6 @@ class AHA(BaseOptimizer):
     def __init__(self, problem, population_size, maximum_iterations, **kwargs):
         super().__init__(problem, population_size, maximum_iterations, **kwargs)
 
-        self.solution.problem = self.problem
-
         self.visited_table = np.zeros((population_size, population_size))
         self.diag_ind = np.diag_indices(population_size)
         self.visited_table[self.diag_ind] = float('inf')
