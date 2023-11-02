@@ -2,6 +2,8 @@
 Base class for all optimization algorithms
 """
 
+__all__ = ['BaseOptimizer']
+
 from abc import ABCMeta, abstractmethod
 
 import numpy as np

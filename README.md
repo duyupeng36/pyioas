@@ -5,8 +5,9 @@
 This repository implements some of the intelligent optimization algorithms that I have seen or used during my graduate studies
 
 # Progress
-- []
-- [] Slime mould algorithm: Anew method for stochastic optimization  
+- [ ] Particle Swarm Optimization
+- [x] Harris hawks optimization: Algorithm and applications
+- [x] Slime mould algorithm: Anew method for stochastic optimization  
 - [x] Seagull optimization algorithm: Theory and its applications for large-scale industrial engineering problems
 - [x] Grey Wolf Optimizer
 - [x] Quadratic Interpolation Optimization (QIO): A new optimization algorithm based on generalized quadratic interpolation and its applications to real-world engineering problems

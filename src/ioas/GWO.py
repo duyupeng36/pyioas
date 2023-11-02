@@ -1,3 +1,5 @@
+__all__ = ['GWO']
+
 from datetime import datetime
 
 import numpy as np

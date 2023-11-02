@@ -1,9 +1,11 @@
 """
 Some utility functions
 """
+import math
+
 import numpy as np
 
-__all__ = ['u', "GQI"]
+__all__ = ['u', "GQI", "levy"]
 
 
 def u(x, a, k, m):
@@ -65,3 +67,19 @@ def GQI(a, b, c, fa, fb, fc, low, up):
         L_xmin = interpolation(xi, 2 * xi - xk, xk, fi, fj, fk, low, up)
 
     return L_xmin
+
+
+def levy(dim, beta=1.5):
+    """
+    :param dim: 维度
+    :param beta: beta = 1.5 levy飞行参数[1, 2]
+    :return:
+    """
+    # q: 将 sigma 以输出公式输出
+    sigma = (math.gamma(1 + beta) * math.sin(math.pi * beta / 2) / (
+                math.gamma((1 + beta) / 2) * beta * 2 ** ((beta - 1) / 2))) ** (1 / beta)
+    u = 0.01 * np.random.randn(dim) * sigma
+    v = np.random.randn(dim)
+    zz = np.power(np.absolute(v), (1 / beta))
+    step = np.divide(u, zz)
+    return step

@@ -1,3 +1,5 @@
+__all__ = ['SOA']
+
 from datetime import datetime
 
 import numpy as np

@@ -1,3 +1,5 @@
+__all__ = ['SMA']
+
 
 from datetime import datetime
 
